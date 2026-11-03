@@ -2,101 +2,33 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fireserver</title>
 <style>
-:root {
-  box-sizing: border-box;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  color-scheme: dark;
-  --bg: #0b1f3f;
-  --surface: #12294f;
-  --text: #eaf1ff;
-  --muted: #a6b9dc;
-  --line: #25407a;
-  --ember: #f97316;
-  --ember-strong: #fb923c;
-  --on-ember: #0b1f3f;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #0b1f3f;
-    --surface: #12294f;
-    --text: #eaf1ff;
-    --muted: #a6b9dc;
-    --line: #25407a;
-    --ember: #f97316;
-    --ember-strong: #fb923c;
-    --on-ember: #1a1210;
-  }
-}
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #0b1f3f;
-  --surface: #12294f;
-  --text: #eaf1ff;
-  --muted: #a6b9dc;
-  --line: #25407a;
-  --ember: #f97316;
-  --ember-strong: #fb923c;
-  --on-ember: #1a1210;
-}
-*, *::before, *::after { box-sizing: inherit; }
-html { height: 100%; }
-body {
-  margin: 0;
-  min-height: 100%;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.25rem;
-}
-main { width: 100%; max-width: 34rem; }
-h1 {
-  font-size: clamp(2.75rem, 12vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin: 0 0 0.75rem;
-}
-.lede { color: var(--muted); margin: 0 0 2rem; font-size: 1.05rem; }
-.links { display: grid; gap: 1rem; }
-.link {
-  display: block;
-  text-decoration: none;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-left: 6px solid var(--ember);
-  border-radius: 6px;
-  padding: 1.25rem 1.5rem;
-  transition: background 0.15s, border-color 0.15s;
-}
-.link:hover { border-left-color: var(--ember-strong); background: var(--bg); }
-.link:focus-visible { outline: 3px solid var(--ember); outline-offset: 3px; }
-.link strong { display: block; font-size: 1.35rem; letter-spacing: -0.01em; }
-.link span { display: block; margin-top: 0.25rem; color: var(--muted); font-size: 0.95rem; overflow-wrap: anywhere; }
-@media (prefers-reduced-motion: reduce) { .link { transition: none; } }
+:root{--bg:#0f1218;--card:#181d26;--text:#f2f4f8;--muted:#9aa3b2;--accent:#ff6a00;color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f4f5f7;--card:#fff;--text:#161a21;--muted:#5d6675;color-scheme:light}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;padding:2rem 1rem;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{text-align:center}
+h1{margin:.5rem 0 .25rem;font-size:2.4rem;letter-spacing:.02em}
+h1 span{color:var(--accent)}
+p{margin:0;color:var(--muted)}
+nav{display:grid;gap:1rem;width:min(420px,100%)}
+a.btn{display:block;padding:1.1rem 1.25rem;border-radius:14px;background:var(--card);color:var(--text);text-decoration:none;font-weight:600;border:2px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:border-color .15s,transform .15s}
+a.btn:hover,a.btn:focus-visible{border-color:var(--accent);transform:translateY(-2px);outline:none}
+a.btn small{display:block;margin-top:.2rem;font-weight:400;color:var(--muted)}
 </style>
 </head>
 <body>
-<main>
-  <h1>Fireserver</h1>
-  <p class="lede">Choose a server to open.</p>
-  <nav class="links" aria-label="Servers">
-    <a class="link" href="http://80.0.25.124:8099/web/index.html#!/home">
-      <strong>Fireserver</strong>
-    </a>
-    <a class="link" href="http://80.0.25.124:8098/web/index.html#!/home">
-      <strong>HPz Fireserver</strong>
-    </a>
-  </nav>
-</main>
+<header>
+
+<h1>Fire<span>server</span></h1>
+<p>Choose your server</p>
+</header>
+<nav>
+<a class="btn" href="http://80.0.25.124:8099/web/index.html#!/home">Fireserver</a>
+<a class="btn" href="http://80.0.25.124:8098/web/index.html#!/home">HPz Fireserver</a>
+<a class="btn" href="http://80.0.25.124:8096">Myserver</a>
+</nav>
 </body>
 </html>
