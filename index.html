@@ -14,9 +14,8 @@ h1{margin:.5rem 0 .25rem;font-size:2.4rem;letter-spacing:.02em}
 h1 span{color:var(--accent)}
 p{margin:0;color:var(--muted)}
 nav{display:grid;gap:1rem;width:min(420px,100%)}
-a.btn{display:block;padding:1.1rem 1.25rem;border-radius:14px;background:var(--card);color:var(--text);text-decoration:none;font-weight:600;border:2px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:border-color .15s,transform .15s}
-a.btn:hover,a.btn:focus-visible{border-color:var(--accent);transform:translateY(-2px);outline:none}
-a.btn small{display:block;margin-top:.2rem;font-weight:400;color:var(--muted)}
+.btn{display:block;width:100%;text-align:left;font:inherit;cursor:pointer;padding:1.1rem 1.25rem;border-radius:14px;background:var(--card);color:var(--text);font-weight:600;border:2px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,.25);transition:border-color .15s,transform .15s}
+.btn:hover,.btn:focus-visible{border-color:var(--accent);transform:translateY(-2px);outline:none}
 </style>
 </head>
 <body>
@@ -26,9 +25,15 @@ a.btn small{display:block;margin-top:.2rem;font-weight:400;color:var(--muted)}
 <p>Choose your server</p>
 </header>
 <nav>
-<a class="btn" href="http://80.0.25.124:8099/web/index.html#!/home">Fireserver</a>
-<a class="btn" href="http://80.0.25.124:8098/web/index.html#!/home">HPz Fireserver</a>
-<a class="btn" href="http://80.0.25.124:8096">Myserver</a>
+<!-- Keep tiles in alphabetical order -->
+<button type="button" class="btn" data-url="http://80.0.25.124:8099/web/index.html#!/home">Fireserver</button>
+<button type="button" class="btn" data-url="http://80.0.25.124:8098/web/index.html#!/home">HPz Fireserver</button>
+<button type="button" class="btn" data-url="http://80.0.25.124:8096">Myserver</button>
 </nav>
+<script>
+document.querySelectorAll('.btn[data-url]').forEach(function (b) {
+  b.addEventListener('click', function () { location.href = b.dataset.url; });
+});
+</script>
 </body>
 </html>
